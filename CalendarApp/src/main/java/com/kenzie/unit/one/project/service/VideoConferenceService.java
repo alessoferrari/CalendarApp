@@ -26,12 +26,15 @@ public class VideoConferenceService {
         if (eventResponse == null || videoConferenceResponse == null) {
             throw new IllegalArgumentException("Conference link does not exist");
         }
-        return VideoConferenceLink
-                .builder()
-                .setEventId(videoConferenceResponse.getEventId())
-                .setMeetingCode(videoConferenceResponse.getMeetingCode())
-                .setConferenceLinkProvider(eventResponse.getVideoConferenceProvider())
-                .build();
+
+            return VideoConferenceLink
+                    .builder()
+                    .setEventId(videoConferenceResponse.getEventId())
+                    .setMeetingCode(videoConferenceResponse.getMeetingCode())
+                    .setConferenceLinkProvider(eventResponse.getVideoConferenceProvider())
+                    .build();
+
+
     }
 
     public VideoConferenceLink createEventConferenceLink(String eventId) {

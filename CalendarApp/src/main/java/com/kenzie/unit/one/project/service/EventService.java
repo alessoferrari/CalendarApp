@@ -39,8 +39,8 @@ public class EventService {
                     format("Please check that person ids %s and %s are correct", ownerPersonId, personId));
         }
         List<Event> events = processResponse(response);
-        var ownerPersonEvents = cache.get(ownerPersonId);
-        cache.put(personId, ownerPersonEvents);
+//        var ownerPersonEvents = cache.get(ownerPersonId);
+        cache.put(personId, events);
         return events;
     }
 

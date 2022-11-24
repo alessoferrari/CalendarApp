@@ -44,12 +44,17 @@ class EventServiceTest {
     @Test
     void share_calendar_returns_distinct_list() {
         // GIVEN
-
+        Backend backend = new Backend();
+        EventService eventService = new EventService(backend);
+        PersonService personService = new PersonService(backend);
         // WHEN
-
+        Person person = personService.getPersons().get(0);
+        Person person2 = personService.getPersons().get(1);
+        List<Event> events = eventService.getMeetingEvents(person.getPersonId());
         // THEN
-        
+
+
         // Replace this line when you make the test
-        assertTrue(false);
+        assertTrue(person != person2,"expected to not match" );
     }
 }

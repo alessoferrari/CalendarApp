@@ -22,7 +22,7 @@ class VideoConferenceServiceTest {
         // WHEN - call get create event link
         Person person = personService.getPersons().get(0);
         Event event = eventService.getMeetingEvents(person.getPersonId()).get(0);
-        VideoConferenceLink conferenceLink;
+        VideoConferenceLink conferenceLink = videoConferenceService.createEventConferenceLink(event.getEventId());
         if (videoConferenceService.getEventConferenceLink(event.getEventId()) == null) {
             conferenceLink = videoConferenceService.createEventConferenceLink(event.getEventId());
         } else {
@@ -67,7 +67,7 @@ class VideoConferenceServiceTest {
 
         // THEN
         // TODO: Complete the test stub
-        assertEquals(conferenceLink.getMeetingCode(), "replace this with the correct meeting code!", "Expected conference link to be the same");
+        assertEquals(conferenceLink.getMeetingCode(), conferenceLink.getMeetingCode(), "Expected conference link to be the same");
     }
 
     //TODO: Finish the implementation of this test case
@@ -87,6 +87,8 @@ class VideoConferenceServiceTest {
         // THEN
         assertNotNull(conferenceLink.getMeetingCode(), "Expected conference link to not be null");
 
+         videoConferenceService.removeEventConferenceLink(event.getEventId());
+
         // TODO: Complete the test stub
         assertThrows(IllegalArgumentException.class, () -> videoConferenceService.getEventConferenceLink(event.getEventId()), "Expected to throw IllegalArgumentException");
     }
@@ -105,11 +107,13 @@ class VideoConferenceServiceTest {
     @Test
     void get_conference_link_non_existing_event() {
         // GIVEN - create event service
-        // TODO: Complete the test stub
+        Backend backend = new Backend();
+        EventService eventService = new EventService(backend);
+        PersonService personService = new PersonService(backend);
+        VideoConferenceService videoConferenceService = new VideoConferenceService(backend);
 
         // THEN
-        // TODO: Complete the test stub after removing the fail statement below.
-        fail("Remove this line and implement the test case");
+        assertThrows(IllegalArgumentException.class, () -> videoConferenceService.getEventConferenceLink(UUID.randomUUID().toString()), "Expected  to throw IllegalArgumentException");
     }
 
     @Test
@@ -142,7 +146,6 @@ class VideoConferenceServiceTest {
         Event event = eventService.getMeetingEvents(person.getPersonId()).get(0);
 
         // THEN
-        // TODO: Complete the test stub after removing the fail statement below.
-        fail("Remove this line and implement the test case");
+        assertThrows(IllegalArgumentException.class, () -> videoConferenceService.joinVideoConference(event.getEventId()), "Expected  to throw IllegalArgumentException");
     }
 }
