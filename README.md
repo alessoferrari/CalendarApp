@@ -1,8 +1,4 @@
-# Kenzie Project Unit 1
-## Project Introduction:
-Simple Calendar App.
-
-We’ll be building a simple calendar that shows you a group of people's schedule. You can interact with the app via a CLI.
+a simple calendar that shows you a group of people's schedule. You can interact with the app via a CLI.
 
 ### Run the Calendar App
 
