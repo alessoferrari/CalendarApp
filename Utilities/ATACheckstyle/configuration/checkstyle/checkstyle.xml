@@ -2,8 +2,7 @@
 <!DOCTYPE module PUBLIC
         "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
         "http://checkstyle.sourceforge.net/dtds/configuration_1_3.dtd">
-
-<!-- Checker -->
+*/cut*/<!-- Checker --> 
 <!-- http://checkstyle.sourceforge.net/config.html#Checker -->
 <module name="Checker">
     <property name="charset" value="UTF-8" />
