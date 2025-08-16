@@ -36,7 +36,7 @@
     </module>
 
     <!-- Whitespace -->
-    <!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+    <!-- http://checkstyle.sourceforge.net/config_whitespace. html -->
     <module name="FileTabCharacter">
         <property name="eachLine" value="true" />
     </module>
